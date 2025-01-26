@@ -116,7 +116,7 @@ const LayersTab = observer(() => {
         (node: LayerNode) => {
             const children = node.children
                 ?.map((child) => editorEngine.ast.mappings.getLayerNode(node.webviewId, child))
-                .filter((child) => child !== undefined) as LayerNode[];
+                .filter((child) => child !== undefined && child.tagName !== 'path') as LayerNode[];
 
             return children?.length ? children : null;
         },
